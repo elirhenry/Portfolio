@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+GENERAL INFORMATION
+  DESCRIPTION
+    -A full-stack portfolio application designed to showcase my software projects, skills, and experience. This application runs in a containerized environment (Frontend + Backend + PostgreSQL) using Docker Desktop.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  TECH STACK
+    -Frontend:	React, JavaScript
+    -Backend:	Node.js, Express.js, Nodemon
+    -Database:	PostgreSQL (v16)
+    -Containerization:	Docker, Docker Compose
+    -Version Control:	Git & GitHub
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+SETUP DETAILS
+  TOOLS & INSTRUCTIONS
+    Tools needed: Docker Desktop & Git
+    -In the terminal paste `git clone https://github.com/elirhenry/Portfolio.git` to clone the repository into your local enviornment.
+    -Past `cd portfolio-app` to go into the directory then paste `docker compose up --build` to launch the application. This will run all of the Docker containers including: portfolio-frontend on http://localhost:3000/, portfolio-backend on http://localhost:8080/ and portfolio-postgres will run internally on port 5432.
+    -After this initial setup you should be able to run the application from the terminal using `docker compose start` and then stop the containers by running `docker compose stop`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  TROUBLESHOOTING
+    -If Postgres doesn't start when you build and run the container, try upgrading the database version:
+      Stop the containers on Docker Desktop and delete them. From the terminal, go to the portfolio-app or main directory and run `rm -rf $HOME/docker/volumes/portfolio-postgres` and then run `mkdir -p $HOME/docker/volumes/portfolio-postgres`. This will update the database versions and reset volumes. From the terminal run `docker compose up --build` again and verify on Docker Database that the portfolio-postgres container is now running.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+PROJECT STRUCTURE
+portfolio-app/
+│── frontend/                 React User Interface
+│   ├── Dockerfile
+│   └── src/...
+│
+│── backend/                  Express Server
+│   ├── Dockerfile
+│   ├── index.js
+│   └── package.json
+│
+├── docker-compose.yaml       Docker Database Configuration
+└── README.md
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
