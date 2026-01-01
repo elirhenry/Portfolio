@@ -1,0 +1,109 @@
+/* CSS universal variables */
+:root {
+  --bg-dark: #0a192f;
+  --bg-light: #e6f1ff;
+  --accent: #64ffda;
+  --text-primary: #ccd6f6;
+  --text-muted: #8892b0;
+}
+
+/* Page wrapper with global font for page*/
+.home {
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  position: relative;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar-bg {
+  background-color: var(--bg-dark);
+  padding: 1.25rem 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border-start-start-radius: 50px;
+  border-end-start-radius: 50px;
+}
+
+.navbar-link-txt {
+  color: var(--text-primary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.navbar-link-active {
+  color: var(--accent);
+}
+
+/* ---------- Sections page layout into 2 columns ---------- */
+
+.home__content {
+  display: flex;
+  height: 100vh;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 50%;
+  height: 100%;
+}
+
+.right-side {
+  background-color: var(--bg-dark);
+  border-radius: 0 0 0 50px;
+  padding: 3rem;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  padding-top: 4rem;
+}
+
+.header-welcome {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.header-name {
+  font-size: 2.7rem;
+  margin: 0;
+}
+
+.header__role {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.value-statement {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ---------- Mobile responsiveness ---------- */
+
+@media (max-width: 900px) {
+  .home__content {
+    grid-template-columns: 1fr;
+  }
+  .home__right {
+    order: -1; /* text on top for mobile */
+  }
+}
