@@ -1,0 +1,43 @@
+/* Universal 2-column layout */
+.page__content {
+  display: flex;
+  min-height: 100vh; /* better than height:100vh for pages with more content */
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 50%;
+  min-height: 100vh;
+}
+
+.right-side {
+  background-color: var(--bg-dark);
+  border-radius: 0 0 0 50px;
+  padding: 4rem 3rem 3rem; /* includes your padding-top */
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-height: 100vh;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .page__content {
+    flex-direction: column;
+  }
+
+  .left-side,
+  .right-side {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .right-side {
+    order: -1; /* right side on top on mobile */
+    border-radius: 0; /* optional, cleaner on mobile */
+  }
+}

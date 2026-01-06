@@ -34,4 +34,6 @@ NPM COMMANDS
   npm install
   npm run dev
   npm install react-router-dom
+  npm install styled-components
+
 

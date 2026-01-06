@@ -1,39 +1,62 @@
+import styled from "styled-components";
 
-import "./Home.css";
-import { Link } from "react-router-dom";
-
+/* ---------- Component ---------- */
 
 function HomePage() {
   return (
-    <div className="home">
-
-      {/* NAVBAR */}
-      <div className="navbar-bg">
-        <Link to="/" className="navbar-link-txt navbar-link-active">Home</Link>
-        <Link to="/projects" className="navbar-link-txt">Projects</Link>
-        <Link to="/about" className="navbar-link-txt">About</Link>
-      </div>
-
-    {/* LEFT SIDE */}
-      <main className="home__content">
+    <HomeWrapper>
+      <main className="page__content">
+        {/* LEFT SIDE */}
         <section className="left-side">
           {/* Avatar, icons, and labels go here */}
         </section>
 
-    {/* RIGHT SIDE */}
+        {/* RIGHT SIDE */}
         <section className="right-side">
-          <p className="header-welcome">Welcome, my name is</p>
-          <h1 className="header-name">Elizabeth Henry</h1>
-          <h2 className="header__role">Software Engineer & Scrum-minded dev</h2>
-          <p className="value-statement">
-            I build and ship React and API-driven apps, containerized with
-            Docker and backed by modern DevSecOps practices—turning ideas into
-            usable tools for real teams.
-          </p>
+          <Welcome>Welcome, my name is</Welcome>
+          <Name>Elizabeth Henry</Name>
+          <Role>Software Engineer & Scrum-minded dev</Role>
+          <ValueStatement>
+            I build and ship React and API-driven apps, containerized with Docker
+            and backed by modern DevSecOps practices—turning ideas into usable
+            tools for real teams.
+          </ValueStatement>
         </section>
       </main>
-    </div>
+    </HomeWrapper>
   );
 }
+
+/* ---------- Styled Components ---------- */
+
+const HomeWrapper = styled.div`
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+`;
+
+const Welcome = styled.p`
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+`;
+
+const Name = styled.h1`
+  font-size: 2.7rem;
+  margin: 0;
+`;
+
+const Role = styled.h2`
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+`;
+
+const ValueStatement = styled.p`
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+`;
 
 export default HomePage;
