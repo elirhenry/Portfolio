@@ -9,7 +9,6 @@ GENERAL INFORMATION
     -Containerization:	Docker, Docker Compose
     -Version Control:	Git & GitHub
 
-
 SETUP DETAILS
   TOOLS & INSTRUCTIONS
     Tools needed: Docker Desktop & Git
@@ -24,6 +23,7 @@ SETUP DETAILS
 
 
 PROJECT STRUCTURE
+  Layout.css - Houses global styling throughout the application including mobile view layout.
 
 
 

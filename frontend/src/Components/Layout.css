@@ -1,7 +1,7 @@
-/* Universal 2-column layout */
+/* ---------- Universal 2-column layout ---------- */
 .page__content {
   display: flex;
-  min-height: 100vh; /* better than height:100vh for pages with more content */
+  min-height: 100vh;
 }
 
 .left-side {
@@ -16,7 +16,7 @@
 .right-side {
   background-color: var(--bg-dark);
   border-radius: 0 0 0 50px;
-  padding: 4rem 3rem 3rem; /* includes your padding-top */
+  padding: 4rem 3rem 3rem;
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
@@ -24,7 +24,8 @@
   min-height: 100vh;
 }
 
-/* Mobile */
+/* ---------- Mobile ---------- */
+
 @media (max-width: 900px) {
   .page__content {
     flex-direction: column;

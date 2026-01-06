@@ -44,6 +44,7 @@ const Welcome = styled.p`
 const Name = styled.h1`
   font-size: 2.7rem;
   margin: 0;
+  color:white;
 `;
 
 const Role = styled.h2`
@@ -54,9 +55,9 @@ const Role = styled.h2`
 `;
 
 const ValueStatement = styled.p`
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white;
 `;
 
 export default HomePage;

@@ -1,6 +1,26 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+/* ---------- Component ---------- */
+
+function Navbar() {
+  return (
+    <NavbarWrapper>
+      <StyledNavLink to="/" end>
+        Home
+      </StyledNavLink>
+
+      <StyledNavLink to="/projects">
+        Projects
+      </StyledNavLink>
+
+      <StyledNavLink to="/about">
+        About
+      </StyledNavLink>
+    </NavbarWrapper>
+  );
+}
+
 /* ---------- Styled Components ---------- */
 
 const NavbarWrapper = styled.nav`
@@ -29,25 +49,5 @@ const StyledNavLink = styled(NavLink)`
     color: var(--accent);
   }
 `;
-
-/* ---------- Component ---------- */
-
-function Navbar() {
-  return (
-    <NavbarWrapper>
-      <StyledNavLink to="/" end>
-        Home
-      </StyledNavLink>
-
-      <StyledNavLink to="/projects">
-        Projects
-      </StyledNavLink>
-
-      <StyledNavLink to="/about">
-        About
-      </StyledNavLink>
-    </NavbarWrapper>
-  );
-}
 
 export default Navbar;
