@@ -4,14 +4,17 @@ function AboutPage() {
   return (
     <AboutWrapper>
       <main className="page__content">
-        <section className="left-side" />
+        {/* LEFT SIDE */}
+        <section className="left-side">
+        {/* Visual timeline goes here */}
+        </section>
 
+        {/* RIGHT SIDE */}
         <section className="right-side">
           <RightGrid>
             <TitleRow>
               <Title>About</Title>
             </TitleRow>
-
             <PitchRow>
               <Pitch>
                 I began my career as a SATCOM operator, where I developed a strong
@@ -46,11 +49,11 @@ const AboutWrapper = styled.div`
 const RightGrid = styled.div`
   height: 100%;
   display: grid;
-  grid-template-rows: auto 1fr; /* title row + pitch row */
+  grid-template-rows: auto 1fr;
 `;
 
 const TitleRow = styled.div`
-  margin-top: -3rem;       /* 👈 adjust this number */
+  margin-top: -3rem;
   display: flex;
   justify-content: center;
 `;
@@ -58,7 +61,7 @@ const TitleRow = styled.div`
 const Title = styled.h1`
   margin: 0;
   font-size: 2.5rem;
-  color: var(--accent); /* 👈 uses index.css variable */
+  color: var(--accent);
 `;
 
 //adjust the paragraph alignment

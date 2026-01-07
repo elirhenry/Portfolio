@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-function ProjectsPage() {
+function ProjectsVideo() {
   // Replace these with your real video URLs (YouTube embed links, Loom embed links, etc.)
   const projects = [
     {
@@ -20,7 +20,7 @@ function ProjectsPage() {
       id: "daily-node",
       name: "Daily/Digital Node",
       description: "Recipe and content app with a clean front-end experience.",
-      videoUrl: "https://www.youtube.com/watch?v=s_338gHfF84&t=20s",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
       id: "rocket",
@@ -30,39 +30,35 @@ function ProjectsPage() {
     },
   ];
 
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(projects[0]);
 
   return (
     <ProjectsWrapper>
       <main className="page__content">
-        {/* LEFT SIDE */}
+        {/* LEFT SIDE: video/demo panel */}
         <section className="left-side">
           <LeftInner>
-            {/* Shows a prompt heading until a video is selected */}
-            <LeftHeading>
-              {selected ? selected.name : "Select a project to view demo video"}
-            </LeftHeading>
-            {selected && (
-              <VideoFrame
-                title={`${selected.name} demo`}
-                src={selected.videoUrl}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            )}
+            <LeftHeading>Select a project to view demo</LeftHeading>
+            <VideoFrame
+              title={`${selected.name} demo`}
+              src={selected.videoUrl}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </LeftInner>
         </section>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE: Project titles/buttons and descriptions */}
         <section className="right-side">
           <RightGrid>
             <TitleRow>
               <Title>Projects</Title>
             </TitleRow>
+
             <ProjectsRow>
               <ProjectsList>
                 {projects.map((p) => {
-                  const isActive = selected?.id === p.id;
+                  const isActive = selected.id === p.id;
                   return (
                     <ProjectButton
                       key={p.id}
@@ -184,4 +180,4 @@ const ProjectDesc = styled.div`
   max-width: 65ch;
 `;
 
-export default ProjectsPage;
+export default ProjectsVideo;

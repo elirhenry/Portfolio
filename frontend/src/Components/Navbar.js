@@ -9,11 +9,9 @@ function Navbar() {
       <StyledNavLink to="/" end>
         Home
       </StyledNavLink>
-
       <StyledNavLink to="/projects">
         Projects
       </StyledNavLink>
-
       <StyledNavLink to="/about">
         About
       </StyledNavLink>

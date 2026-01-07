@@ -1,4 +1,4 @@
-/* ---------- Universal 2-column layout ---------- */
+/* ---------- Universal 2-column layout across all pages ---------- */
 .page__content {
   display: flex;
   min-height: 100vh;
