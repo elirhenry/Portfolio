@@ -26,6 +26,7 @@
 
 /* ---------- Mobile ---------- */
 
+/* Mobile */
 @media (max-width: 900px) {
   .page__content {
     flex-direction: column;
@@ -38,7 +39,7 @@
   }
 
   .right-side {
-    order: -1; /* right side on top on mobile */
-    border-radius: 0; /* optional, cleaner on mobile */
+    order: -1; /* optional: right side on top */
+    border-radius: 0;
   }
 }

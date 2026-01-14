@@ -1,36 +1,35 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { projects } from "../Media/projectsData";
 
 function ProjectsPage() {
-  // Replace these with your real video URLs (YouTube embed links, Loom embed links, etc.)
-  const projects = [
-    {
-      id: "lightsaber",
-      name: "Lightsaber Database",
-      description: "Inventory + CRUD app for managing product catalog data.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
-    {
-      id: "satellite",
-      name: "Satellite Assessment",
-      description: "Tracker for satellite/operator assessments and workflow.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
-    {
-      id: "daily-node",
-      name: "Daily/Digital Node",
-      description: "Recipe and content app with a clean front-end experience.",
-      videoUrl: "https://www.youtube.com/watch?v=s_338gHfF84&t=20s",
-    },
-    {
-      id: "rocket",
-      name: "Rocket Roaming Travel",
-      description: "Fictional travel site concept with interactive UI.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
-  ];
-
   const [selected, setSelected] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
+
+  // Reset overlay + force video to restart whenever a new project is selected
+  useEffect(() => {
+    setIsPlaying(false);
+
+    const v = videoRef.current;
+    if (!v) return;
+
+    v.pause();
+    v.currentTime = 0;
+    v.load();
+  }, [selected?.id]);
+
+  const handlePlayFromOverlay = async () => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    try {
+      await v.play();
+      // onPlay will set isPlaying(true)
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <ProjectsWrapper>
@@ -38,17 +37,31 @@ function ProjectsPage() {
         {/* LEFT SIDE */}
         <section className="left-side">
           <LeftInner>
-            {/* Shows a prompt heading until a video is selected */}
             <LeftHeading>
               {selected ? selected.name : "Select a project to view demo video"}
             </LeftHeading>
+
             {selected && (
-              <VideoFrame
-                title={`${selected.name} demo`}
-                src={selected.videoUrl}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              <VideoShell>
+                <Video
+                  key={selected.id} // forces a fresh <video> when switching projects
+                  ref={videoRef}
+                  src={selected.videoUrl}
+                  controls
+                  preload="metadata"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                />
+
+                {/* Only show overlay + click-catcher when NOT playing */}
+                {!isPlaying && (
+                  <>
+                    <ClickCatcher type="button" onClick={handlePlayFromOverlay} />
+                    <PlayOverlay>▶</PlayOverlay>
+                  </>
+                )}
+              </VideoShell>
             )}
           </LeftInner>
         </section>
@@ -59,10 +72,12 @@ function ProjectsPage() {
             <TitleRow>
               <Title>Projects</Title>
             </TitleRow>
+
             <ProjectsRow>
               <ProjectsList>
                 {projects.map((p) => {
                   const isActive = selected?.id === p.id;
+
                   return (
                     <ProjectButton
                       key={p.id}
@@ -96,7 +111,7 @@ const ProjectsWrapper = styled.div`
 const LeftInner = styled.div`
   width: 100%;
   height: 100%;
-  padding: 6.5rem 3rem 3rem; /* space under navbar */
+  padding: 6.5rem 3rem 3rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -110,13 +125,43 @@ const LeftHeading = styled.h2`
   font-weight: 700;
 `;
 
-const VideoFrame = styled.iframe`
+const VideoShell = styled.div`
+  position: relative;
   width: 100%;
   max-width: 720px;
-  height: 405px;
-  border: 0;
-  border-radius: 16px;
   align-self: center;
+`;
+
+const Video = styled.video`
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+`;
+
+/* Transparent button that captures click anywhere on video (only when paused) */
+const ClickCatcher = styled.button`
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+`;
+
+/* Semi-transparent overlay play icon */
+const PlayOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 5rem;
+  color: rgba(100, 255, 218, 0.85);
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 3;
 `;
 
 /* Right side */
@@ -153,7 +198,6 @@ const ProjectsList = styled.div`
   gap: 1.25rem;
 `;
 
-/* Button cards */
 const ProjectButton = styled.button`
   text-align: left;
   background: transparent;

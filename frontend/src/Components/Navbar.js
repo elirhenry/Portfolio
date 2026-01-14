@@ -27,6 +27,7 @@ const NavbarWrapper = styled.nav`
   display: flex;
   justify-content: center;
   gap: 3rem;
+
   width: 50vw;
   position: absolute;
   top: 0;
@@ -34,6 +35,16 @@ const NavbarWrapper = styled.nav`
   z-index: 10;
   border-start-start-radius: 50px;
   border-end-start-radius: 50px;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
