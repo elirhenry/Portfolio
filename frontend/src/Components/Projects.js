@@ -3,32 +3,41 @@ import styled from "styled-components";
 import { projects } from "../Media/projectsData";
 
 function ProjectsPage() {
-  const [selected, setSelected] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoElementRef = useRef(null);
 
-  // Reset overlay + force video to restart whenever a new project is selected
+  // When a new project is selected, starts the new video starts at 0 and shows the play button.
   useEffect(() => {
-    setIsPlaying(false);
+    if (!selectedProject) return;
+    setIsVideoPlaying(false);
+    const currentVideoElement = videoElementRef.current;
+    if (!currentVideoElement) return;
+    currentVideoElement.pause();
+    currentVideoElement.currentTime = 0;
+  }, [selectedProject]);
 
-    const v = videoRef.current;
-    if (!v) return;
 
-    v.pause();
-    v.currentTime = 0;
-    v.load();
-  }, [selected?.id]);
-
-  const handlePlayFromOverlay = async () => {
-    const v = videoRef.current;
-    if (!v) return;
-
+  // Plays the selected video when the play button is clicked.
+  const playSelectedVideo = async () => {
+    const currentVideoElement = videoElementRef.current;
+    if (!currentVideoElement) return;
     try {
-      await v.play();
-      // onPlay will set isPlaying(true)
-    } catch (e) {
-      console.log(e);
+      await currentVideoElement.play();
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  // Makes sure the play button appears when a new project is selected, even if the last video was still playing.
+  const selectProject = (projectToSelect) => {
+    const currentVideoElement = videoElementRef.current;
+    setIsVideoPlaying(false);
+    if (currentVideoElement) {
+      currentVideoElement.pause();
+      currentVideoElement.currentTime = 0;
+    }
+    setSelectedProject(projectToSelect);
   };
 
   return (
@@ -38,28 +47,30 @@ function ProjectsPage() {
         <section className="left-side">
           <LeftInner>
             <LeftHeading>
-              {selected ? selected.name : "Select a project to view demo video"}
+              {selectedProject
+                ? selectedProject.name
+                : "Select a project to view demo video"}
             </LeftHeading>
 
-            {selected && (
-              <VideoShell>
+            {selectedProject && (
+              // Remount the video area for each project selected
+              <VideoShell key={selectedProject.id}>
                 <Video
-                  key={selected.id} // forces a fresh <video> when switching projects
-                  ref={videoRef}
-                  src={selected.videoUrl}
+                  ref={videoElementRef}
+                  src={selectedProject.videoUrl}
                   controls
                   preload="metadata"
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  onEnded={() => setIsPlaying(false)}
+                  onPlay={() => setIsVideoPlaying(true)}
+                  onPause={() => setIsVideoPlaying(false)}
+                  onEnded={() => setIsVideoPlaying(false)}
                 />
 
-                {/* Only show overlay + click-catcher when NOT playing */}
-                {!isPlaying && (
-                  <>
-                    <ClickCatcher type="button" onClick={handlePlayFromOverlay} />
+                {/* Play button is visible only when the video is not playing. */}
+                {!isVideoPlaying && (
+                  <div>
+                    <ClickCatcher type="button" onClick={playSelectedVideo} />
                     <PlayOverlay>▶</PlayOverlay>
-                  </>
+                  </div>
                 )}
               </VideoShell>
             )}
@@ -75,18 +86,18 @@ function ProjectsPage() {
 
             <ProjectsRow>
               <ProjectsList>
-                {projects.map((p) => {
-                  const isActive = selected?.id === p.id;
+                {projects.map((project) => {
+                  const isSelected = selectedProject?.id === project.id;
 
                   return (
                     <ProjectButton
-                      key={p.id}
+                      key={project.id}
                       type="button"
-                      $active={isActive}
-                      onClick={() => setSelected(p)}
+                      $active={isSelected}
+                      onClick={() => selectProject(project)}
                     >
-                      <ProjectName>{p.name}</ProjectName>
-                      <ProjectDesc>{p.description}</ProjectDesc>
+                      <ProjectName>{project.name}</ProjectName>
+                      <ProjectDesc>{project.description}</ProjectDesc>
                     </ProjectButton>
                   );
                 })}
@@ -99,7 +110,7 @@ function ProjectsPage() {
   );
 }
 
-/* ---------- Styled Components (Projects only) ---------- */
+/* ---------- Styled Components ---------- */
 
 const ProjectsWrapper = styled.div`
   min-height: 100vh;
@@ -138,7 +149,7 @@ const Video = styled.video`
   display: block;
 `;
 
-/* Transparent button that captures click anywhere on video (only when paused) */
+/* Play button */
 const ClickCatcher = styled.button`
   position: absolute;
   inset: 0;
@@ -148,14 +159,12 @@ const ClickCatcher = styled.button`
   z-index: 2;
 `;
 
-/* Semi-transparent overlay play icon */
 const PlayOverlay = styled.div`
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 5rem;
   color: rgba(100, 255, 218, 0.85);
   background: rgba(0, 0, 0, 0.25);
