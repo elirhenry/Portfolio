@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import IconArc from "./IconArc";
 
 /* ---------- Component ---------- */
 
@@ -8,7 +9,13 @@ function HomePage() {
       <main className="page__content">
         {/* LEFT SIDE */}
         <section className="left-side">
-          {/* Avatar, icons, and labels go here */}
+          <AvatarContainer>
+            <IconArc
+              offsetTop={-50}    // move arc lower
+              radius={195}       // spread wider
+              arcDegrees={200}   // more spacing across a wider arc
+            />
+          </AvatarContainer>
         </section>
 
         {/* RIGHT SIDE */}
@@ -33,6 +40,13 @@ const HomeWrapper = styled.div`
   min-height: 100vh;
   background-color: var(--bg-light);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+`;
+
+const AvatarContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
 `;
 
 const Welcome = styled.p`

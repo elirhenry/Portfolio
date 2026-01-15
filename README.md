@@ -35,5 +35,6 @@ NPM COMMANDS
   npm run dev
   npm install react-router-dom
   npm install styled-components
+  npm i react-icons
 
 

@@ -13,10 +13,10 @@ function ProjectsPage() {
     setIsVideoPlaying(false);
     const currentVideoElement = videoElementRef.current;
     if (!currentVideoElement) return;
+
     currentVideoElement.pause();
     currentVideoElement.currentTime = 0;
   }, [selectedProject]);
-
 
   // Plays the selected video when the play button is clicked.
   const playSelectedVideo = async () => {
