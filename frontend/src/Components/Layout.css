@@ -39,7 +39,11 @@
   }
 
   .right-side {
-    order: -1; /* optional: right side on top */
+    order: -1;
     border-radius: 0;
+  }
+
+  .left-side {
+    margin-top: -75px;
   }
 }

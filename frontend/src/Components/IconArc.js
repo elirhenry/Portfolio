@@ -1,6 +1,8 @@
+// This file creates and modifies the avatar, icons, and labels visual in the Home page
 import styled from "styled-components";
 
-const icons = [
+// Adds each icon and label
+const ICONS = [
   { id: "js", label: "JavaScript", src: "/icons/javascript.svg" },
   { id: "ts", label: "TypeScript", src: "/icons/typescript.svg" },
   { id: "py", label: "Python", src: "/icons/python.svg" },
@@ -12,144 +14,124 @@ const icons = [
   { id: "jira", label: "Jira", src: "/icons/jira.svg" },
 ];
 
+// Positions and adjusts arc, icon/label radius, and avatar position
 function IconArc({
   size = 500,
-  circleRadius = 100,   // perfect circle radius
-  ringWidth = 3,
+  circleRadius = 150,
+  ringWidth = 2,
   ringColor = "var(--accent)",
-  arcRadius = 300,      // icon arc placement radius
+  arcRadius = 150,
   arcDegrees = 180,
-  iconSize = 35,
-  labelSize = "0.75rem",
+  iconSize = 25,
+  labelSize = "0.55rem",
   offsetTop = 85,
-
-  avatarWidth = 360,    // avatar can be non-square now
+  avatarWidth = 250,
   avatarHeight = 300,
-  avatarBorderRadius = "0 0 100px 100px",
-  avatarOffsetY = -50,  // move avatar up/down independently
+  avatarOffsetY = 10,
   bottomText = "Software Development Life Cycle",
 }) {
   const cx = size / 2;
-
-  // Circle center (fixed to keep perfect circle)
-  const cy = size / 2 + 150; // adjust to move circle up/down in container
-
-  // Avatar positioning (independent from circle)
-  const avatarX = cx - avatarWidth / 2;
-  const avatarY = cy - avatarHeight / 2 + avatarOffsetY;
+  const cy = size / 2 + 45;
 
   const start = 180 + (arcDegrees - 180) / 2;
   const end = 0 - (arcDegrees - 180) / 2;
 
   return (
-    <ArcOuter style={{ marginTop: offsetTop }}>
-      <ArcContainer style={{ width: size, height: size }}>
-        {/* PERFECT CIRCLE RING + TEXT */}
-        <RingSvg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-          <circle
-            cx={cx}
-            cy={cy}
-            r={circleRadius}
-            fill="none"
-            stroke={ringColor}
-            strokeWidth={ringWidth}
-          />
+    <Outer style={{ marginTop: offsetTop }}>
+      <Wrap style={{ width: size, height: size }}>
+        <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+          <circle cx={cx} cy={cy} r={circleRadius} fill="none" stroke={ringColor} strokeWidth={ringWidth} />
 
           <defs>
             <path
               id="sdlcPath"
-              d={`
-                M ${cx - circleRadius} ${cy}
-                A ${circleRadius} ${circleRadius} 0 0 1 ${cx + circleRadius} ${cy}
-              `}
+              d={`M ${cx - circleRadius} ${cy} A ${circleRadius} ${circleRadius} 0 0 0 ${cx + circleRadius} ${cy}`}
             />
           </defs>
 
-          <text fill={ringColor} fontSize="14" opacity="0.85">
+          <text fill="#0a192f" fontSize="14" opacity="1" dy="12">
             <textPath href="#sdlcPath" startOffset="50%" textAnchor="middle">
               {bottomText}
             </textPath>
           </text>
-        </RingSvg>
+        </Svg>
 
-        {/* AVATAR (CUSTOM SHAPE) */}
-        <Avatar
-          src="/avatar/avatar.png"
-          alt="Avatar"
-          style={{
-            left: avatarX,
-            top: avatarY,
-            width: avatarWidth,
-            height: avatarHeight,
-            borderRadius: avatarBorderRadius,
-          }}
-        />
+        <AvatarClip style={{ left: cx, top: cy + avatarOffsetY, width: avatarWidth, height: avatarHeight }}>
+          <AvatarImg src="/avatar/avatar.png" alt="Avatar" />
+        </AvatarClip>
 
-        {/* ICONS (TOP ARC) */}
-        {icons.map((icon, i) => {
-          const t = icons.length === 1 ? 0.5 : i / (icons.length - 1);
-          const angleDeg = start + (end - start) * t;
-          const angle = (angleDeg * Math.PI) / 180;
+        {ICONS.map((icon, i) => {
+          const t = ICONS.length === 1 ? 0.5 : i / (ICONS.length - 1);
+          const angle = ((start + (end - start) * t) * Math.PI) / 180;
 
-          const x = cx + arcRadius * Math.cos(angle) - iconSize / 2;
-          const y = cy - arcRadius * Math.sin(angle) - iconSize / 2;
+          const left = cx + arcRadius * Math.cos(angle) - iconSize / 2;
+          const top = cy - arcRadius * Math.sin(angle) - iconSize / 2;
 
           return (
-            <IconBadge key={icon.id} style={{ left: x, top: y, width: iconSize }}>
-              <IconImg
-                src={icon.src}
-                alt={icon.label}
-                style={{ width: iconSize, height: iconSize }}
-              />
-              <IconLabel style={{ fontSize: labelSize }}>{icon.label}</IconLabel>
-            </IconBadge>
+            <Badge key={icon.id} style={{ left, top, width: iconSize }}>
+              <Icon src={icon.src} alt={icon.label} style={{ width: iconSize, height: iconSize }} />
+              <Label style={{ fontSize: labelSize }}>{icon.label}</Label>
+            </Badge>
           );
         })}
-      </ArcContainer>
-    </ArcOuter>
+      </Wrap>
+    </Outer>
   );
 }
 
-const ArcOuter = styled.div`
+/* ---------- Styled Components ---------- */
+
+const Outer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
 `;
 
-const ArcContainer = styled.div`
+const Wrap = styled.div`
   position: relative;
   overflow: visible;
 `;
 
-const RingSvg = styled.svg`
+const Svg = styled.svg`
   position: absolute;
   inset: 0;
   z-index: 3;
   pointer-events: none;
 `;
 
-const Avatar = styled.img`
+const AvatarClip = styled.div`
   position: absolute;
-  z-index: 2; /* under ring, above background */
-  object-fit: cover;
+  z-index: 2;
+  transform: translate(-50%, -50%) scaleY(1.3);
+  clip-path: circle(58% at 50% 23.5%);
+  overflow: hidden;
 `;
 
-const IconBadge = styled.div`
+const AvatarImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+`;
+
+const Badge = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.35rem;
-  z-index: 4; /* above ring */
+  z-index: 4;
 `;
 
-const IconImg = styled.img`
+const Icon = styled.img`
   display: block;
+  filter: brightness(0) saturate(100%) invert(14%) sepia(18%) saturate(1084%)
+    hue-rotate(182deg) brightness(92%) contrast(92%);
 `;
 
-const IconLabel = styled.div`
-  color: var(--bg-dark);
-  opacity: 0.85;
+const Label = styled.div`
+  color: #0a192f;
   text-align: center;
   white-space: nowrap;
 `;

@@ -1,20 +1,19 @@
 import styled from "styled-components";
 import IconArc from "./IconArc";
 
-function SkillsGraphic() {
+export default function SkillsGraphic() {
   return (
-    <GraphicWrapper>
+    <Wrap>
       <IconArc />
-    </GraphicWrapper>
+    </Wrap>
   );
 }
 
-const GraphicWrapper = styled.div`
+/* ---------- Styled Components ---------- */
+
+const Wrap = styled.div`
   width: 420px;
   height: 420px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
 `;
-
-export default SkillsGraphic;
