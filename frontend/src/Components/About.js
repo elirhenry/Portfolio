@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import AboutTimeline from "./AboutTimeline"
 
 function AboutPage() {
   return (
@@ -6,7 +7,9 @@ function AboutPage() {
       <main className="page__content">
         {/* LEFT SIDE */}
         <section className="left-side">
-        {/* Visual timeline goes here */}
+          <LeftContained>
+            <AboutTimeline accent="#64ffda" text="#0a192f" topOffset={120} />
+          </LeftContained>
         </section>
 
         {/* RIGHT SIDE */}
@@ -45,7 +48,13 @@ const AboutWrapper = styled.div`
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 `;
 
-/* This overrides the internal layout WITHOUT touching Layout.css */
+const LeftContained = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* ✅ keeps it in the left column */
+`;
+
 const RightGrid = styled.div`
   height: 100%;
   display: grid;
@@ -64,7 +73,6 @@ const Title = styled.h1`
   color: var(--accent);
 `;
 
-//adjust the paragraph alignment
 const PitchRow = styled.div`
   font-size: 1.1rem;
   color: white;
