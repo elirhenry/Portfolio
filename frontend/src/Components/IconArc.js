@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 // Adds each icon and label
 const ICONS = [
-  { id: "js", label: "JavaScript", src: "/icons/javascript.svg" },
-  { id: "ts", label: "TypeScript", src: "/icons/typescript.svg" },
-  { id: "py", label: "Python", src: "/icons/python.svg" },
-  { id: "html", label: "HTML", src: "/icons/html5.svg" },
-  { id: "snowflake", label: "SnowflakeSQL", src: "/icons/snowflake.svg" },
-  { id: "docker", label: "Docker", src: "/icons/docker.svg" },
-  { id: "react", label: "React", src: "/icons/react.svg" },
-  { id: "github", label: "GitHub", src: "/icons/github.svg" },
-  { id: "jira", label: "Jira", src: "/icons/jira.svg" },
+  { id: "js", label: "JavaScript", src: "/HomeIcons/javascript.svg" },
+  { id: "ts", label: "TypeScript", src: "/HomeIcons/typescript.svg" },
+  { id: "py", label: "Python", src: "/HomeIcons/python.svg" },
+  { id: "html", label: "HTML", src: "/HomeIcons/html5.svg" },
+  { id: "snowflake", label: "SnowflakeSQL", src: "/HomeIcons/snowflake.svg" },
+  { id: "docker", label: "Docker", src: "/HomeIcons/docker.svg" },
+  { id: "react", label: "React", src: "/HomeIcons/react.svg" },
+  { id: "github", label: "GitHub", src: "/HomeIcons/github.svg" },
+  { id: "jira", label: "Jira", src: "/HomeIcons/jira.svg" },
 ];
 
 // Positions and adjusts arc, icon/label radius, and avatar position

@@ -3,73 +3,84 @@ import styled from "styled-components";
 
 const timelineItems = [
   {
-    title: "Systems Operator",
-    subtitle: "United States\nSpace Force",
-    year: "2021–2022",
-    detail: "Satellite communications\n& mission operations",
-    iconSrc: "/icons/satellite.svg",
+    title: "Space\u00A0Force Apprentice",
+    year: "2021",
+    detail: "Joined the Space\u00A0Force\n & trained as a Satellite\u00A0Operator",
+    iconSrc: "/AboutIcons/spaceforcelogo.png"
   },
   {
-    title: "Supra Coders",
-    subtitle: "Full-stack\nBootcamp",
+    title: "Satellite Operator",
     year: "2023",
-    detail: "Full-stack\nsoftware engineering\nbootcamp",
-    iconSrc: "/icons/code.svg",
+    detail: "Supported systems' optimization & data analytics",
+    iconSrc: "/AboutIcons/satellite.png",
   },
   {
-    title: "Launch/Weather Support",
-    subtitle: "Space Launch Delta\n45 Internship",
+    title: "Supra Coder",
+    subtitle: "Full-stack Software Developer bootcamp",
+    year: "2024",
+    detail: "Trained in Full Stack Software Developer bootcamp",
+    iconSrc: "/AboutIcons/coding.png",
+  },
+  {
+    title: "Supra\u00A0Coder Internship",
+    subtitle: "Space Launch Delta 45 Internship",
     year: "Mid 2024",
-    detail: "Space Launch\nDelta 45\nInternship",
-    iconSrc: "/icons/radar.svg",
+    detail: "Optimized Cape\u00A0Canaveral weather application for launch support",
+    iconSrc: "/AboutIcons/launchicon.png",
   },
   {
-    title: "Operations Support",
+    title: "Software Developer",
     subtitle: "Palantir Project",
-    year: "Early 2025",
-    detail: "Operations\nSupport",
-    iconSrc: "/icons/tools.svg",
+    year: "2025",
+    detail: "Delivered dashboard for asset reporting, resources, & alerts",
+    iconSrc: "/AboutIcons/dashboard.png",
   },
   {
-    title: "SkillBridge Fellow",
+    title: "Walt\u00A0Disney Fellowship",
     subtitle: "Disney Data\nTech/Scrum",
-    year: "Late 2025",
-    detail: "SkillBridge\nFellow",
-    iconSrc: "/icons/castle.svg",
+    year: "Mid 2025",
+    detail: "Supported Project Management for data migration",
+    iconSrc: "/AboutIcons/disney.png",
   },
 ];
 
-export default function AboutTimeline({
+function AboutTimeline({
   accent = "#64ffda",
   text = "#0a192f",
   topOffset = 120,
 }) {
-  const lastIndex = timelineItems.length - 1;
+  const cols = timelineItems.length;
 
   return (
-    <Outer style={{ marginTop: topOffset, ["--accent"]: accent, ["--text"]: text }}>
+    <Outer
+      style={{
+        marginTop: topOffset,
+        "--accent": accent,
+        "--text": text,
+      }}
+    >
       <Wrap>
         {/* TOP ROW */}
-        <TopGrid>
+        <TopGrid $cols={cols}>
           {timelineItems.map((item) => (
-            <TopCell key={item.title}>
+            <TopCell key={`${item.title}-${item.year}`}>
               <IconWrap>
                 <Icon src={item.iconSrc} alt="" />
               </IconWrap>
               <Title>{item.title}</Title>
-              <SubTitle>{item.subtitle}</SubTitle>
+              {/* <SubTitle>{item.subtitle}</SubTitle> */}
             </TopCell>
           ))}
         </TopGrid>
 
         {/* TIMELINE + BOTTOM */}
-        <BottomGrid>
-          <LineRow>
+        <BottomGrid $cols={cols}>
+          <LineRow $cols={cols}>
             <Line />
             <Arrow />
 
             {timelineItems.map((item) => (
-              <PinCell key={item.title}>
+              <PinCell key={`${item.title}-${item.year}`}>
                 <Pin>
                   <Stem />
                   <Dot />
@@ -78,17 +89,13 @@ export default function AboutTimeline({
             ))}
           </LineRow>
 
-          {timelineItems.map((item, idx) => (
-            <BottomCell
-              key={item.title}
-              $align={idx === 0 ? "center" : idx === timelineItems.length - 1 ? "center" : "center"}
-            >
+          {timelineItems.map((item) => (
+            <BottomCell key={`${item.title}-${item.year}`} $align="center">
               <Year>{item.year}</Year>
               <Detail>{item.detail}</Detail>
             </BottomCell>
           ))}
         </BottomGrid>
-
       </Wrap>
     </Outer>
   );
@@ -96,10 +103,11 @@ export default function AboutTimeline({
 
 /* ---------------- styles ---------------- */
 
+const GRID_GAP = "60px";
+
 const Outer = styled.div`
   width: 100%;
   overflow: hidden;
-  padding: 0 10px;
   box-sizing: border-box;
 `;
 
@@ -108,19 +116,26 @@ const Wrap = styled.section`
   background: transparent;
   box-sizing: border-box;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  /* ✅ keeps the exact layout, just scales down slightly when more than 5 items */
+  transform-origin: top center;
+  transform: scale(0.88);
 `;
 
 /* TOP GRID */
 const TopGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(${(p) => p.$cols}, minmax(0, 1fr));
+  gap: ${GRID_GAP};
   align-items: start;
 `;
 
 const TopCell = styled.div`
-  text-align: center;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers the block itself */
+  text-align: center;    /* centers wrapped lines */
 `;
 
 const IconWrap = styled.div`
@@ -132,7 +147,15 @@ const IconWrap = styled.div`
 const Icon = styled.img`
   width: clamp(28px, 3.4vw, 38px);
   height: clamp(28px, 3.4vw, 38px);
-  filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.25));
+  /* converts PNG → #0a192f */
+  filter: brightness(0)
+          saturate(100%)
+          invert(10%)
+          sepia(38%)
+          saturate(900%)
+          hue-rotate(185deg)
+          brightness(90%)
+          contrast(95%);
 `;
 
 const Title = styled.div`
@@ -141,33 +164,34 @@ const Title = styled.div`
   font-size: clamp(11px, 1.2vw, 13px);
   line-height: 1.15;
   margin-bottom: 4px;
-`;
-
-const SubTitle = styled.div`
-  color: var(--text);
-  font-weight: 500;
-  font-size: clamp(10px, 1.1vw, 11px);
-  line-height: 1.25;
+  text-align: center;
   white-space: pre-line;
 `;
+
+
+// const SubTitle = styled.div`
+//   color: var(--text);
+//   font-weight: 500;
+//   font-size: clamp(10px, 1.1vw, 11px);
+//   line-height: 1.25;
+//   white-space: pre-line;
+// `;
 
 /* BOTTOM GRID */
 const BottomGrid = styled.div`
   margin-top: 4px;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  column-gap: 12px;
+  grid-template-columns: repeat(${(p) => p.$cols}, minmax(0, 1fr));
+  column-gap: ${GRID_GAP};  /* ✅ add this */
   align-items: start;
 `;
 
 const LineRow = styled.div`
   grid-column: 1 / -1;
   position: relative;
-
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  column-gap: 12px;       /* ✅ MUST match TopGrid gap */
-
+  grid-template-columns: repeat(${(p) => p.$cols}, minmax(0, 1fr));
+  column-gap: ${GRID_GAP};  /* ✅ match the others */
   height: 28px;
   margin-top: 2px;
   margin-bottom: 6px;
@@ -180,8 +204,6 @@ const PinCell = styled.div`
   position: relative;
   z-index: 2;              /* ensures pin sits above the line */
 `;
-
-const LINE_Y = 15; /* ✅ single source of truth for line Y */
 
 const Line = styled.div`
   position: absolute;
@@ -196,7 +218,7 @@ const Line = styled.div`
 
 const Arrow = styled.div`
   position: absolute;
-  right: -1px;
+  right: -14px;
   top: 16px;
   transform: translateY(-50%);
   width: 0;
@@ -238,7 +260,7 @@ const Dot = styled.div`
 const BottomCell = styled.div`
   text-align: ${(p) => p.$align};
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   align-items: ${(p) =>
@@ -250,6 +272,7 @@ const Year = styled.div`
   color: var(--text);
   font-weight: 900;
   font-size: clamp(11px, 1.2vw, 13px);
+  white-space: nowrap;
 `;
 
 const Detail = styled.div`
@@ -258,4 +281,7 @@ const Detail = styled.div`
   font-size: clamp(10px, 1.1vw, 11px);
   line-height: 1.25;
   white-space: pre-line;
+  text-align: center;
 `;
+
+export default AboutTimeline;

@@ -20,17 +20,15 @@ function AboutPage() {
             </TitleRow>
             <PitchRow>
               <Pitch>
-                I began my career as a SATCOM operator, where I developed a strong
-                foundation in problem-solving, communication, and supporting
-                mission-critical teams. That experience led me to Supra Coders,
-                where I transitioned into software development and learned how to
-                build real-world applications while working in Agile, team-based
-                environments. Along the way, I strengthened not only my technical
-                skills, but also my ability to collaborate, mentor, and contribute
-                meaningfully to shared goals. Today, I’m focused on continuing to
-                grow as a software engineer with a Scrum-minded approach, seeking
-                opportunities where I can build impactful products and support
-                strong, collaborative teams.
+                My journey in tech began in the Space Force as a Satellite Operator where reliability and precision were
+                essential. Working with systems and data analysis sparked my interest in how software supports operations.
+                That curiosity led me into the Supra Coders program where I was trained as a Full Stack Developer.
+                That training was followed by an internship to support Cape Canaveral missions by improving a
+                real-time weather application used for launch operations.
+                I gained experience as a Software Developer through supporting the design, development, and deployment
+                of a dashboard application focused on systems' status, communication, and alerts.
+                These experiences progressed into a Agile delivery and Scrum leadership,
+                where I supported cross-functional teams during large-scale data migration initiatives.
               </Pitch>
             </PitchRow>
           </RightGrid>

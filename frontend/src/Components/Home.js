@@ -15,10 +15,12 @@ function HomePage() {
         <section className="right-side">
           <Welcome>Welcome, my name is</Welcome>
           <Name>Elizabeth Henry</Name>
-          <Role>Software Engineer & Scrum-minded developer</Role>
+          <Role>Software Professional
+            <br />
+            Design · Develop · Deploy
+          </Role>
           <ValueStatement>
-            I build and ship React and API-driven apps, containerized with Docker and backed by modern DevSecOps
-            practices—turning ideas into usable tools for real teams.
+            I build web applications that connect ideas to execution and turn complex processes into dependable solutions teams can rely on.
           </ValueStatement>
         </section>
       </main>
