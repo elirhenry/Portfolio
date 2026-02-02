@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 const timelineItems = [
   {
-    title: "Space\u00A0Force Apprentice",
+    title: "Space Force",
     year: "2021",
     detail: "Joined the Space\u00A0Force\n & trained as a Satellite\u00A0Operator",
     iconSrc: "/AboutIcons/spaceforcelogo.png"
   },
   {
     title: "Satellite Operator",
-    year: "2023",
+    year: "2022",
     detail: "Supported systems' optimization & data analytics",
     iconSrc: "/AboutIcons/satellite.png",
   },

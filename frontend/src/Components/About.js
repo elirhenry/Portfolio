@@ -21,14 +21,19 @@ function AboutPage() {
             <PitchRow>
               <Pitch>
                 My journey in tech began in the Space Force as a Satellite Operator where reliability and precision were
-                essential. Working with systems and data analysis sparked my interest in how software supports operations.
-                That curiosity led me into the Supra Coders program where I was trained as a Full Stack Developer.
-                That training was followed by an internship to support Cape Canaveral missions by improving a
-                real-time weather application used for launch operations.
-                I gained experience as a Software Developer through supporting the design, development, and deployment
-                of a dashboard application focused on systems' status, communication, and alerts.
-                These experiences progressed into a Agile delivery and Scrum leadership,
-                where I supported cross-functional teams during large-scale data migration initiatives.
+                essential. Working with systems and data sparked my interest in how software supports operations.
+                That curiosity led me into the Supra Coders program, a bootcamp course to become a Full Stack Developer.
+                The course included an internship where our team supported Cape Canaveral launch operations by optimizing
+                data collection and mapping features for a weather application. It was my first real world
+                experience in working with Engineers to enhance features via the Software Development Life Cycle.
+                <br></br>
+                After the program, I gained experience as a Developer in delivering a dashboard application
+                focused on the efficient communication of satellite assets and resources. This involved the development, testing, and
+                deployment phases of the application within a secured enviornment.
+
+                At the end of my Space Force journey I participated in the Skillbridge program for transitioning service
+                members as a Walt Disney fellow.
+                I supported cross-functional teams in delivering solutions for a large-scale data migration on an enterprise level.
               </Pitch>
             </PitchRow>
           </RightGrid>

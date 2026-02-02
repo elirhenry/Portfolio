@@ -20,7 +20,7 @@ function HomePage() {
             Design · Develop · Deploy
           </Role>
           <ValueStatement>
-            I build web applications that connect ideas to execution and turn complex processes into dependable solutions teams can rely on.
+            I build web applications that connect ideas from concept to execution and turn complex processes into dependable solutions teams can rely on.
           </ValueStatement>
         </section>
       </main>

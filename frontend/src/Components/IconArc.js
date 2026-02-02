@@ -6,7 +6,7 @@ const ICONS = [
   { id: "js", label: "JavaScript", src: "/HomeIcons/javascript.svg" },
   { id: "ts", label: "TypeScript", src: "/HomeIcons/typescript.svg" },
   { id: "py", label: "Python", src: "/HomeIcons/python.svg" },
-  { id: "html", label: "HTML", src: "/HomeIcons/html5.svg" },
+  { id: "html", label: "HTML5", src: "/HomeIcons/html5.svg" },
   { id: "snowflake", label: "SnowflakeSQL", src: "/HomeIcons/snowflake.svg" },
   { id: "docker", label: "Docker", src: "/HomeIcons/docker.svg" },
   { id: "react", label: "React", src: "/HomeIcons/react.svg" },
