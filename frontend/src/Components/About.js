@@ -22,18 +22,18 @@ function AboutPage() {
               <Pitch>
                 My journey in tech began in the Space Force as a Satellite Operator where reliability and precision were
                 essential. Working with systems and data sparked my interest in how software supports operations.
-                That curiosity led me into the Supra Coders program, a bootcamp course to become a Full Stack Developer.
+                That curiosity led me into the Supra Coder program, a bootcamp course to become a Full Stack Developer.
                 The course included an internship where our team supported Cape Canaveral launch operations by optimizing
                 data collection and mapping features for a weather application. It was my first real world
-                experience in working with Engineers to enhance features via the Software Development Life Cycle.
+                experience in working with Engineers to enhance features via the Software Development Life Cycle
+                and applying Agile methodologies.
                 <br></br>
                 After the program, I gained experience as a Developer in delivering a dashboard application
                 focused on the efficient communication of satellite assets and resources. This involved the development, testing, and
                 deployment phases of the application within a secured enviornment.
-
                 At the end of my Space Force journey I participated in the Skillbridge program for transitioning service
-                members as a Walt Disney fellow.
-                I supported cross-functional teams in delivering solutions for a large-scale data migration on an enterprise level.
+                members as a Walt Disney fellow. I supported cross-functional teams in delivering solutions for a large-scale
+                data migration on an enterprise level.
               </Pitch>
             </PitchRow>
           </RightGrid>
