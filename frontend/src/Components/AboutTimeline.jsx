@@ -11,7 +11,7 @@ const timelineItems = [
   {
     title: "Satellite Operator",
     year: "2022",
-    detail: "Supported systems' optimization & data analytics",
+    detail: "Supported systems' optimization & data analysis",
     iconSrc: "/AboutIcons/satellite.png",
   },
   {
@@ -32,7 +32,7 @@ const timelineItems = [
     title: "Software Developer",
     subtitle: "Palantir Project",
     year: "2025",
-    detail: "Delivered dashboard for asset reporting, resources, & alerts",
+    detail: "Delivered dashboard for\u00A0systems' reporting, resources, & alerts",
     iconSrc: "/AboutIcons/dashboard.png",
   },
   {

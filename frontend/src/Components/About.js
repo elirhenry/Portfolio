@@ -19,21 +19,25 @@ function AboutPage() {
               <Title>About</Title>
             </TitleRow>
             <PitchRow>
-              <Pitch>
-                My journey in tech began in the Space Force as a Satellite Operator where reliability and precision were
-                essential. Working with systems and data sparked my interest in how software supports operations.
-                That curiosity led me into the Supra Coder program, a bootcamp course to become a Full Stack Developer.
-                The course included an internship where our team supported Cape Canaveral launch operations by optimizing
-                data collection and mapping features for a weather application. It was my first real world
-                experience in working with Engineers to enhance features via the Software Development Life Cycle
-                and applying Agile methodologies.
+                {/* <Pitch>
+                My journey in tech began in the Space Force as a Satellite Operator, where reliability and precision were critical to daily operations.
+                Working closely with systems and data sparked my interest in how software supports operations.
                 <br></br>
-                After the program, I gained experience as a Developer in delivering a dashboard application
-                focused on the efficient communication of satellite assets and resources. This involved the development, testing, and
-                deployment phases of the application within a secured enviornment.
-                At the end of my Space Force journey I participated in the Skillbridge program for transitioning service
-                members as a Walt Disney fellow. I supported cross-functional teams in delivering solutions for a large-scale
-                data migration on an enterprise level.
+                That interest led me into the Supra Coder program, a Full-Stack Developer bootcamp that included an internship supporting Cape Canaveral launch operations.
+                Working with engineers, I helped improve data and mapping features for a weather software tool while learning Agile development in practice.
+                <br></br>
+                After the program, I continued developing with an application focused on asset status and operational communication within secured environments.
+                I later participated in the SkillBridge program as a Walt Disney fellow, supporting Project Management efforts for cross-functional teams in delivering data migration on an enterprise scale.
+              </Pitch> */}
+                <Pitch>
+                My background in tech is rooted in operational environments, where reliability and precision were daily requirements.
+                Working with systems and data shaped how I think about problem-solving and sparked my interest in how software supports operations.
+                <br></br>
+                As I transitioned into building software, I gravitated toward projects that improved visibility and coordination for teams.
+                Collaborating in Agile environments to manage workflows reinforced my appreciation for thoughtful design and development across engineering teams.
+                <br></br>
+                Today, I continue to build and learn while seeking opportunities to contribute to dependable, well-designed software.
+                I enjoy connecting with teams that value collaboration, clarity, and real-world impact.
               </Pitch>
             </PitchRow>
           </RightGrid>

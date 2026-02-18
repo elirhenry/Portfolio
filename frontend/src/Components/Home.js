@@ -20,7 +20,8 @@ function HomePage() {
             Design · Develop · Deploy
           </Role>
           <ValueStatement>
-            I build web applications that connect ideas from concept to execution and turn complex processes into dependable solutions teams can rely on.
+            I build web applications shaped by real-world experience to deliver software tools for modern teams.
+            I enjoy transforming problem solving concepts into dependable solutions that make people’s work clearer and more effective.
           </ValueStatement>
         </section>
       </main>
