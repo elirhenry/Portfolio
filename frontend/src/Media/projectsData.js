@@ -5,24 +5,18 @@ export const projects = [
     description: "A fictional space travel web application with user friendly navigation features and a secure database to store user information.",
     videoUrl: "/videos/Fargate-Demo.mp4",
   },
-  {
-    id: "lightsaber",
-    name: "Inventory Database",
-    description: "Inventory + CRUD application for managing product catalog data.",
-    videoUrl: "/videos/Test-Recording.mp4",
-  },
   // {
   //   id: "lightsaber",
-  //   name: "Asset Tracker",
-  //   description: "Tracker for satellite assesments.",
-  //   videoUrl: "/videos/Sample-2.mp4",
+  //   name: "Saber-tory",
+  //   description: "A lightsaber inventory tool for a retail database. Displays a general inventory list for quick access and provides editing features for authenticated users.",
+  //   videoUrl: "/videos/Test-Recording.mp4",
   // },
-  {
-    id: "lightsaber",
-    name: "Dish Dash",
-    description: "Recipe application.",
-    videoUrl: "/videos/Test-Recording.mp4",
-  },
+  // {
+  //   id: "lightsaber",
+  //   name: "Dish Dash",
+  //   description: "Recipe application.",
+  //   videoUrl: "/videos/Test-Recording.mp4",
+  // },
 
 ];
 
