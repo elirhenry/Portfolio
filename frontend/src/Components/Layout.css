@@ -1,7 +1,8 @@
 /* ---------- Universal 2-column layout across all pages ---------- */
 .page__content {
   display: flex;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  min-height: 100svh;
 }
 
 .left-side {
@@ -10,7 +11,8 @@
   align-items: center;
   gap: 2rem;
   width: 50%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  min-height: 100svh;
 }
 
 .right-side {
@@ -21,7 +23,8 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  min-height: 100svh;
 }
 
 /* ---------- Mobile ---------- */
@@ -38,12 +41,24 @@
     min-height: auto;
   }
 
-  .right-side {
+  /* .right-side {
     order: -1;
     border-radius: 0;
+  } */
+   @media (max-width: 900px) {
+  .right-side {
+    padding: 2.25rem 1.25rem 2rem;
   }
+}
 
-  .left-side {
+  /* .left-side {
     margin-top: -75px;
+  } */
+   @media (max-width: 900px) {
+  .left-side {
+    margin-top: 0;
+    padding-top: 16px;
+    padding-bottom: 24px;
   }
+}
 }
