@@ -38,10 +38,8 @@ function IconArc({
 
   return (
     <Outer style={{ marginTop: offsetTop }}>
-      {/* <Wrap style={{ width: size, height: size }}> */}
-      <Wrap style={{ width: "min(92vw, " + size + "px)", aspectRatio: "1 / 1" }}>
-        {/* <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}> */}
-        <Svg viewBox={`0 0 ${size} ${size}`} preserveAspectRatio="xMidYMid meet">
+      <Wrap style={{ width: size, height: size }}>
+        <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
           <circle cx={cx} cy={cy} r={circleRadius} fill="none" stroke={ringColor} strokeWidth={ringWidth} />
 
           <defs>
@@ -94,18 +92,9 @@ const Wrap = styled.div`
   overflow: visible;
 `;
 
-// const Svg = styled.svg`
-//   position: absolute;
-//   inset: 0;
-//   z-index: 3;
-//   pointer-events: none;
-// `;
-
 const Svg = styled.svg`
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   z-index: 3;
   pointer-events: none;
 `;

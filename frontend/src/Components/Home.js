@@ -8,16 +8,7 @@ function HomePage() {
       <main className="page__content">
         <section className="left-side">
           <AvatarContainer>
-            {/* <IconArc offsetTop={-50} arcDegrees={200} avatarWidth={275} avatarHeight={290} avatarOffsetY={38} /> */}
-            <IconArc
-              offsetTop={0}
-              arcDegrees={200}
-              avatarWidth={260}
-              avatarHeight={275}
-              avatarOffsetY={38}
-              iconSize={22}
-              labelSize="0.5rem"
-            />
+            <IconArc offsetTop={-50} arcDegrees={200} avatarWidth={275} avatarHeight={290} avatarOffsetY={38} />
           </AvatarContainer>
         </section>
         {/* RIGHT SIDE */}
@@ -40,14 +31,8 @@ function HomePage() {
 
 /* ---------- Styled Components ---------- */
 
-// const HomeWrapper = styled.div`
-//   min-height: 100vh;
-//   background-color: var(--bg-light);
-//   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-// `;
-
 const HomeWrapper = styled.div`
-  min-height: 100svh; /* better on mobile */
+  min-height: 100vh;
   background-color: var(--bg-light);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 `;
