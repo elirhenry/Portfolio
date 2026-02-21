@@ -47,3 +47,14 @@
     margin-top: -75px;
   }
 }
+
+@media (max-width: 900px) {
+  /* Home page only: keep the left visual centered */
+  .home .left-side {
+    margin-top: 0;                 /* cancels the -75px on mobile */
+    display: flex;
+    justify-content: center;       /* horizontal center */
+    align-items: center;           /* vertical center */
+    padding: 1.5rem 0 2.5rem;      /* space above/below */
+  }
+}

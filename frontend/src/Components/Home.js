@@ -3,7 +3,7 @@ import IconArc from "./IconArc";
 
 function HomePage() {
   return (
-    <HomeWrapper>
+    <HomeWrapper className="home">
       {/* LEFT SIDE */}
       <main className="page__content">
         <section className="left-side">
