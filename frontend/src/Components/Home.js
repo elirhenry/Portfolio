@@ -47,19 +47,19 @@ const AvatarContainer = styled.div`
 
 // RIGHT SIDE
 const Welcome = styled.p`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--accent);
   margin-bottom: 0.75rem;
 `;
 
 const Name = styled.h1`
-  font-size: 2.7rem;
+  font-size: 2rem;
   margin: 0;
   color: white;
 `;
 
 const Role = styled.h2`
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: var(--accent);
   margin: 0.5rem 0 1.5rem;
 `;
