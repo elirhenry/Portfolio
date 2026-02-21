@@ -103,7 +103,7 @@ function AboutTimeline({
 
 /* ---------------- styles ---------------- */
 
-const GRID_GAP = "40px";
+const GRID_GAP = "30px";
 
 const Outer = styled.div`
   width: 100%;

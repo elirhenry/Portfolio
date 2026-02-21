@@ -6,10 +6,10 @@ function HomePage() {
     <HomeWrapper className="home">
       {/* LEFT SIDE */}
       <main className="page__content">
-        <section className="left-side">
-          <AvatarContainer>
-            <IconArc offsetTop={-50} arcDegrees={200} avatarWidth={275} avatarHeight={290} avatarOffsetY={38} />
-          </AvatarContainer>
+    <section className="left-side">
+      <AvatarContainer className="home-arc">
+        <IconArc offsetTop={-50} arcDegrees={200} avatarWidth={275} avatarHeight={290} avatarOffsetY={38} />
+      </AvatarContainer>
         </section>
         {/* RIGHT SIDE */}
         <section className="right-side">
