@@ -25,9 +25,8 @@
 }
 
 /* ---------- Mobile ---------- */
-
-/* Mobile */
 @media (max-width: 900px) {
+
   .page__content {
     flex-direction: column;
   }
@@ -43,21 +42,37 @@
     border-radius: 0;
   }
 
-  /* .left-side {
-    margin-top: -75px;
-  } */
-}
+  /* -------- HOME PAGE ONLY FIX -------- */
 
-@media (max-width: 900px) {
   .home .page__content {
     min-height: 100svh;
+    overflow-x: hidden;
   }
 
   .home .left-side {
-    margin-top: 0;
     display: flex;
-    justify-content: center;   /* horizontal center */
-    align-items: center;       /* vertical center */
-    min-height: 50svh;         /* takes half the screen */
+    justify-content: center;
+    align-items: center;
+    min-height: 50svh;
+    padding: 1rem 0 2rem;
+  }
+
+  /* Scale the entire IconArc safely */
+  .home .home-arc {
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+}
+
+/* Smaller phones */
+@media (max-width: 420px) {
+  .home .home-arc {
+    transform: scale(0.76);
+  }
+}
+
+@media (max-width: 360px) {
+  .home .home-arc {
+    transform: scale(0.70);
   }
 }
