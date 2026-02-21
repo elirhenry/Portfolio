@@ -43,28 +43,21 @@
     border-radius: 0;
   }
 
-  .left-side {
+  /* .left-side {
     margin-top: -75px;
-  }
+  } */
 }
 
 @media (max-width: 900px) {
-  /* HOME ONLY: stop horizontal clipping */
   .home .page__content {
-    overflow-x: hidden;
+    min-height: 100svh;
   }
 
-  /* HOME ONLY: center the bottom visual + remove the big negative nudge */
   .home .left-side {
     margin-top: 0;
     display: flex;
-    justify-content: center;
-    padding: 1.25rem 0 2.25rem;
-  }
-
-  /* HOME ONLY: scale IconArc as a single unit so all absolute positions scale together */
-  .home .home-arc {
-    transform: scale(0.82);
-    transform-origin: top center;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical center */
+    min-height: 50svh;         /* takes half the screen */
   }
 }
