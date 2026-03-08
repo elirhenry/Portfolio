@@ -11,12 +11,11 @@ export const projects = [
     description: "A Star Wars themed lightsaber inventory tool for a retail database. Displays a read-only view for quick access and provides editing features for authenticated users.",
     videoUrl: "/videos/Sabertory-Demo.mp4",
   },
-  // {
-  //   id: "lightsaber",
-  //   name: "Dish Dash",
-  //   description: "Recipe application.",
-  //   videoUrl: "/videos/Test-Recording.mp4",
-  // },
-
+  {
+    id: "dishdash",
+    name: "Dish Dash",
+    description: "A recipe application that generates unique meals everyday and lets the user search for recipes based on ingredients.",
+    videoUrl: "/videos/DishDash-Demo-resized.mp4",
+  },
 ];
 
