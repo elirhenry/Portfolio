@@ -8,7 +8,7 @@ export const projects = [
   {
     id: "sabertory",
     name: "Saber-tory",
-    description: "A Star Wars themed lightsaber inventory tool for a retail database. Displays a read-only view for quick access and provides editing features for authenticated users.",
+    description: "A Star Wars themed inventory tool for a retail database. Displays a read-only view for quick access and provides editing features for authenticated users.",
     videoUrl: "/videos/Sabertory-Demo.mp4",
   },
   {
