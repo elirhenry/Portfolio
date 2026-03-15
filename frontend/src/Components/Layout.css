@@ -26,7 +26,6 @@
 
 /* ---------- Mobile ---------- */
 @media (max-width: 900px) {
-
   .page__content {
     flex-direction: column;
     min-height: auto;
@@ -35,21 +34,24 @@
   .left-side,
   .right-side {
     width: 100%;
-    min-height: auto; /* overrides the 100vh */
+    min-height: auto;
   }
 
   .left-side {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* pushes content to top */
+    justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    padding-top: 1rem;
+    min-height: 0;
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
-  /* remove vertical centering spacing */
   .left-side > * {
     margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   .right-side {
@@ -57,7 +59,13 @@
     border-radius: 0;
   }
 
-  /* Scale the entire IconArc */
+  .home .home-arc,
+  .left-side svg,
+  .left-side img {
+    margin-top: 0 !important;
+    align-self: flex-start;
+  }
+
   .home .home-arc {
     transform: scale(0.82);
     transform-origin: top center;
