@@ -26,28 +26,29 @@
 
 /* ---------- Mobile ---------- */
 @media (max-width: 900px) {
+
   .page__content {
     flex-direction: column;
-    align-items: stretch;
+    min-height: auto;
   }
 
   .left-side,
   .right-side {
     width: 100%;
-    min-height: auto;
+    min-height: auto; /* overrides the 100vh */
   }
 
   .left-side {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-start; /* pushes content to top */
     align-items: center;
     gap: 1rem;
     padding-top: 1rem;
-    margin-top: 0;
   }
 
-  .left-side > *:first-child {
+  /* remove vertical centering spacing */
+  .left-side > * {
     margin-top: 0 !important;
   }
 
@@ -55,33 +56,6 @@
     order: -1;
     border-radius: 0;
   }
-
-  /* -------- HOME PAGE ONLY FIX -------- */
-/*
-@media (max-width: 900px) {
-  .page__content {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .left-side,
-  .right-side {
-    width: 100%;
-    min-height: auto;
-  }
-
-  .left-side {
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 1.5rem;
-    margin-top: 0;
-  }
-
-  .right-side {
-    order: -1;
-    border-radius: 0;
-  }
-} */
 
   /* Scale the entire IconArc */
   .home .home-arc {
@@ -94,11 +68,13 @@
 @media (max-width: 420px) {
   .home .home-arc {
     transform: scale(0.76);
+    transform-origin: top center;
   }
 }
 
 @media (max-width: 360px) {
   .home .home-arc {
     transform: scale(0.70);
+    transform-origin: top center;
   }
 }
