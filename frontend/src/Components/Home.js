@@ -17,7 +17,7 @@ function HomePage() {
               iconSize={isMobile ? 22 : 25}
               labelSize={isMobile ? "0.48rem" : "0.55rem"}
               offsetTop={-50}
-              centerYOffset={isMobile ? 0 : 45}
+              centerYOffset={isMobile ? 15 : 45}
               arcDegrees={200}
               avatarWidth={isMobile ? 220 : 275}
               avatarHeight={isMobile ? 235 : 290}
