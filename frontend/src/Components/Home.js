@@ -11,6 +11,7 @@ function HomePage() {
         <IconArc offsetTop={-50} arcDegrees={200} avatarWidth={275} avatarHeight={290} avatarOffsetY={38} />
       </AvatarContainer>
         </section>
+
         {/* RIGHT SIDE */}
         <section className="right-side">
           <Welcome>Welcome, my name is</Welcome>
@@ -43,6 +44,10 @@ const AvatarContainer = styled.div`
   display: flex;
   justify-content: center;
   overflow: visible;
+
+  @media (max-width: 900px) {
+    transform: translateY(-180px);
+  }
 `;
 
 // RIGHT SIDE

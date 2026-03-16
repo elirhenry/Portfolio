@@ -24,6 +24,7 @@ function IconArc({
   arcDegrees = 180,
   iconSize = 25,
   labelSize = "0.55rem",
+
   offsetTop = 85,
   avatarWidth = 250,
   avatarHeight = 300,

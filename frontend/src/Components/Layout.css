@@ -26,6 +26,7 @@
 
 /* ---------- Mobile ---------- */
 @media (max-width: 900px) {
+
   .page__content {
     flex-direction: column;
     min-height: auto;
@@ -43,46 +44,10 @@
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    min-height: 0;
-    height: auto;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .left-side > * {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
   }
 
   .right-side {
     order: -1;
     border-radius: 0;
-  }
-
-  .home .home-arc,
-  .left-side svg,
-  .left-side img {
-    margin-top: 0 !important;
-    align-self: flex-start;
-  }
-
-  .home .home-arc {
-    transform: scale(0.82);
-    transform-origin: top center;
-  }
-}
-
-/* Smaller phones */
-@media (max-width: 420px) {
-  .home .home-arc {
-    transform: scale(0.76);
-    transform-origin: top center;
-  }
-}
-
-@media (max-width: 360px) {
-  .home .home-arc {
-    transform: scale(0.70);
-    transform-origin: top center;
   }
 }

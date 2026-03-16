@@ -2,13 +2,19 @@ import styled from "styled-components";
 import AboutTimeline from "./AboutTimeline"
 
 function AboutPage() {
+  const isMobile = window.innerWidth <= 900;
   return (
     <AboutWrapper>
       <main className="page__content">
+
         {/* LEFT SIDE */}
         <section className="left-side">
           <LeftContained>
-            <AboutTimeline accent="#64ffda" text="#0a192f" topOffset={120} />
+            <AboutTimeline
+              accent="#64ffda"
+              text="#0a192f"
+              topOffset={isMobile ? 20 : 120}
+            />
           </LeftContained>
         </section>
 
@@ -19,16 +25,6 @@ function AboutPage() {
               <Title>About</Title>
             </TitleRow>
             <PitchRow>
-                {/* <Pitch>
-                My journey in tech began in the Space Force as a Satellite Operator, where reliability and precision were critical to daily operations.
-                Working closely with systems and data sparked my interest in how software supports operations.
-                <br></br>
-                That interest led me into the Supra Coder program, a Full-Stack Developer bootcamp that included an internship supporting Cape Canaveral launch operations.
-                Working with engineers, I helped improve data and mapping features for a weather software tool while learning Agile development in practice.
-                <br></br>
-                After the program, I continued developing with an application focused on asset status and operational communication within secured environments.
-                I later participated in the SkillBridge program as a Walt Disney fellow, supporting Project Management efforts for cross-functional teams in delivering data migration on an enterprise scale.
-              </Pitch> */}
                 <Pitch>
                 My background in tech is rooted in operational environments, where reliability and precision were daily requirements.
                 Working with systems and data shaped how I think about problem-solving and sparked my interest in how software supports operations.
@@ -59,7 +55,7 @@ const LeftContained = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  overflow: hidden; /* ✅ keeps it in the left column */
+  overflow: hidden;
 `;
 
 const RightGrid = styled.div`
