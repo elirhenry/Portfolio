@@ -24,15 +24,15 @@ function IconArc({
   arcDegrees = 180,
   iconSize = 25,
   labelSize = "0.55rem",
-
   offsetTop = 85,
+  centerYOffset = 45,
   avatarWidth = 250,
   avatarHeight = 300,
   avatarOffsetY = 10,
   bottomText = "Software Development Life Cycle",
 }) {
   const cx = size / 2;
-  const cy = size / 2 + 45;
+  const cy = size / 2 + centerYOffset;
 
   const start = 180 + (arcDegrees - 180) / 2;
   const end = 0 - (arcDegrees - 180) / 2;

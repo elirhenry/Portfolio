@@ -2,14 +2,23 @@ import styled from "styled-components";
 import IconArc from "./IconArc";
 
 function HomePage() {
+  const isMobile = window.innerWidth <= 900;
+
   return (
     <HomeWrapper className="home">
-      {/* LEFT SIDE */}
       <main className="page__content">
-    <section className="left-side">
-      <AvatarContainer className="home-arc">
-        <IconArc offsetTop={-50} arcDegrees={200} avatarWidth={275} avatarHeight={290} avatarOffsetY={38} />
-      </AvatarContainer>
+        {/* LEFT SIDE */}
+        <section className="left-side">
+          <AvatarContainer className="home-arc">
+            <IconArc
+              offsetTop={-50}
+              centerYOffset={isMobile ? 5 : 45}
+              arcDegrees={200}
+              avatarWidth={275}
+              avatarHeight={290}
+              avatarOffsetY={38}
+            />
+          </AvatarContainer>
         </section>
 
         {/* RIGHT SIDE */}
@@ -38,19 +47,13 @@ const HomeWrapper = styled.div`
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 `;
 
-// LEFT SIDE
 const AvatarContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   overflow: visible;
-
-  @media (max-width: 900px) {
-    transform: translateY(-180px);
-  }
 `;
 
-// RIGHT SIDE
 const Welcome = styled.p`
   font-size: 1rem;
   color: var(--accent);
