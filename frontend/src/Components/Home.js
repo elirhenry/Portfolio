@@ -11,12 +11,17 @@ function HomePage() {
         <section className="left-side">
           <AvatarContainer className="home-arc">
             <IconArc
+              size={isMobile ? 360 : 500}
+              circleRadius={isMobile ? 120 : 150}
+              arcRadius={isMobile ? 120 : 150}
+              iconSize={isMobile ? 22 : 25}
+              labelSize={isMobile ? "0.48rem" : "0.55rem"}
               offsetTop={-50}
-              centerYOffset={isMobile ? 5 : 45}
+              centerYOffset={isMobile ? 0 : 45}
               arcDegrees={200}
-              avatarWidth={275}
-              avatarHeight={290}
-              avatarOffsetY={38}
+              avatarWidth={isMobile ? 220 : 275}
+              avatarHeight={isMobile ? 235 : 290}
+              avatarOffsetY={isMobile ? 28 : 38}
             />
           </AvatarContainer>
         </section>
@@ -52,6 +57,11 @@ const AvatarContainer = styled.div`
   display: flex;
   justify-content: center;
   overflow: visible;
+
+  @media (max-width: 900px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 const Welcome = styled.p`
